@@ -1,188 +1,486 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<meta name="keywords" content="Zelin Zhao, CUHK">
-<meta name="description" content="Zelin Zhao's homepage">
-<link rel="stylesheet" href="./zelin_sources/jemdoc.css" type="text/css">
-<title>Zelin Zhao's Homepage</title>
-<script async="" src="./zelin_sources/analytics.js"></script><script type="text/javascript" async="" src="./zelin_sources/ga.js"></script><script type="text/javascript">
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Zelin Zhao</title>
+<meta name="description" content="Zelin Zhao is a Machine Learning Ph.D. candidate at Georgia Tech working on generative world models, video generation, neural fields, and agents.">
+<meta name="keywords" content="Zelin Zhao, Georgia Tech, machine learning, world models, video generation, neural fields, agents">
+<meta property="og:title" content="Zelin Zhao">
+<meta property="og:description" content="Machine Learning Ph.D. candidate at Georgia Tech. Generative world models, video generation, neural fields, and agents.">
+<meta property="og:type" content="profile">
+<meta property="og:url" content="https://sjtuytc.github.io/">
+<meta property="og:image" content="https://sjtuytc.github.io/assets/zelin.jpg">
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400&family=Source+Sans+3:ital,wght@0,400;0,500;0,600;1,400&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+:root {
+  color-scheme: light;
+  --paper: #f6f7f5;
+  --panel: #edf0ee;
+  --ink: #171c1f;
+  --muted: #5c6870;
+  --rule: #d6dcd9;
+  --accent: #155e75;
+  --accent-ink: #0f4a5c;
+  --accent-soft: #e1edf0;
+  --tag-ink: #3f4d54;
+  --award: #7a4a12;
+  --award-soft: #f4e9d8;
+  --shadow: 0 1px 2px rgba(23, 28, 31, .06), 0 8px 24px rgba(23, 28, 31, .06);
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    color-scheme: dark;
+    --paper: #121618;
+    --panel: #191f22;
+    --ink: #e6eae9;
+    --muted: #9aa6ab;
+    --rule: #2b3438;
+    --accent: #6fc4d6;
+    --accent-ink: #8dd3e2;
+    --accent-soft: #17282e;
+    --tag-ink: #b7c2c6;
+    --award: #e2b878;
+    --award-soft: #2c2318;
+    --shadow: 0 1px 2px rgba(0, 0, 0, .4), 0 8px 24px rgba(0, 0, 0, .35);
+  }
+}
+:root[data-theme="dark"] {
+  color-scheme: dark;
+  --paper: #121618;
+  --panel: #191f22;
+  --ink: #e6eae9;
+  --muted: #9aa6ab;
+  --rule: #2b3438;
+  --accent: #6fc4d6;
+  --accent-ink: #8dd3e2;
+  --accent-soft: #17282e;
+  --tag-ink: #b7c2c6;
+  --award: #e2b878;
+  --award-soft: #2c2318;
+  --shadow: 0 1px 2px rgba(0, 0, 0, .4), 0 8px 24px rgba(0, 0, 0, .35);
+}
 
-  var _gaq = _gaq || [];
-  _gaq.push(['_setAccount', 'UA-39824124-1']);
-  _gaq.push(['_trackPageview']);
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: "Source Sans 3", "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  font-size: 17px;
+  line-height: 1.55;
+  -webkit-font-smoothing: antialiased;
+}
+a { color: var(--accent); text-decoration: none; }
+a:hover { color: var(--accent-ink); text-decoration: underline; text-underline-offset: 2px; }
+a:focus-visible, button:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; border-radius: 2px; }
+strong { font-weight: 600; }
+.serif { font-family: "Newsreader", Georgia, "Times New Roman", serif; }
+.mono { font-family: "IBM Plex Mono", "SFMono-Regular", Consolas, monospace; }
 
-  (function() {
-    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-  })();
+.page {
+  max-width: 1120px;
+  margin: 0 auto;
+  padding-block: clamp(28px, 5vw, 64px);
+  padding-inline: clamp(16px, 4vw, 40px);
+  display: grid;
+  grid-template-columns: 272px minmax(0, 1fr);
+  gap: clamp(32px, 6vw, 88px);
+  align-items: start;
+}
 
-</script>
+/* ---------- sidebar ---------- */
+.side {
+  position: sticky;
+  top: 32px;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+.portrait {
+  width: 100%;
+  max-width: 208px;
+  aspect-ratio: 4 / 5;
+  object-fit: cover;
+  border-radius: 6px;
+  box-shadow: var(--shadow);
+  display: block;
+}
+.name-block h1 {
+  font-family: "Newsreader", Georgia, serif;
+  font-weight: 500;
+  font-size: 2.1rem;
+  line-height: 1.1;
+  letter-spacing: -.01em;
+  margin: 0;
+  display: flex;
+  align-items: baseline;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+.name-block .cn {
+  font-family: "Newsreader", "Noto Serif SC", "Songti SC", "SimSun", serif;
+  font-size: 1.15rem;
+  color: var(--muted);
+  font-weight: 400;
+}
+.name-block .role { margin: 8px 0 0; font-size: 1rem; color: var(--ink); }
+.name-block .affil { margin: 2px 0 0; color: var(--muted); font-size: .97rem; }
+.links { list-style: none; margin: 0; padding: 0; display: grid; gap: 6px; }
+.links li a {
+  display: flex; align-items: center; gap: 10px;
+  padding: 7px 10px; border-radius: 6px;
+  color: var(--ink); font-weight: 500; font-size: .96rem;
+}
+.links li a:hover { background: var(--accent-soft); color: var(--accent-ink); text-decoration: none; }
+.links svg { width: 17px; height: 17px; flex: none; fill: none; stroke: currentColor; stroke-width: 1.7; stroke-linecap: round; stroke-linejoin: round; }
+.links .addr { font-family: "IBM Plex Mono", monospace; font-size: .86rem; }
+.side nav { border-top: 1px solid var(--rule); padding-top: 14px; }
+.side nav ul { list-style: none; margin: 0; padding: 0; display: grid; gap: 4px; }
+.side nav a { font-size: .88rem; letter-spacing: .06em; text-transform: uppercase; color: var(--muted); }
+.side nav a:hover { color: var(--accent-ink); }
+
+/* ---------- main ---------- */
+main { min-width: 0; display: grid; gap: clamp(40px, 6vw, 64px); }
+section > h2 {
+  font-family: "Newsreader", Georgia, serif;
+  font-weight: 500;
+  font-size: 1.55rem;
+  letter-spacing: -.005em;
+  margin: 0 0 18px;
+  padding-bottom: 8px;
+  border-bottom: 1px solid var(--rule);
+  text-wrap: balance;
+}
+.lede { font-size: 1.12rem; line-height: 1.6; max-width: 66ch; margin: 0; }
+.lede + p, .prose p { max-width: 66ch; margin: 14px 0 0; }
+.interests { display: flex; flex-wrap: wrap; gap: 8px; margin: 20px 0 0; padding: 0; list-style: none; }
+.interests li {
+  font-family: "IBM Plex Mono", monospace; font-size: .82rem;
+  padding: 4px 10px; border: 1px solid var(--rule); border-radius: 999px; color: var(--tag-ink);
+}
+
+/* publications */
+.pubs { list-style: none; margin: 0; padding: 0; display: grid; gap: 22px; }
+.pub { display: grid; grid-template-columns: 78px minmax(0, 1fr); gap: 16px; align-items: start; }
+.pub .venue {
+  font-family: "IBM Plex Mono", monospace; font-size: .8rem; line-height: 1.35;
+  color: var(--tag-ink); padding-top: 4px;
+}
+.pub .venue b { display: block; font-weight: 500; color: var(--ink); }
+.pub .title { font-family: "Newsreader", Georgia, serif; font-size: 1.22rem; line-height: 1.3; font-weight: 500; margin: 0; }
+.pub .title a { color: var(--ink); }
+.pub .title a:hover { color: var(--accent-ink); }
+.pub .authors { margin: 4px 0 0; color: var(--muted); font-size: .97rem; }
+.pub .authors .me { color: var(--ink); font-weight: 600; }
+.pub .meta { display: flex; flex-wrap: wrap; gap: 6px 14px; margin: 6px 0 0; align-items: center; font-size: .92rem; }
+.pub .meta a { font-weight: 500; }
+.award {
+  display: inline-block; font-size: .8rem; font-weight: 600; letter-spacing: .02em;
+  padding: 2px 8px; border-radius: 4px; background: var(--award-soft); color: var(--award);
+}
+.note { font-size: .92rem; color: var(--muted); }
+.pubs.compact { gap: 14px; }
+.pubs.compact .pub .title { font-size: 1.06rem; }
+
+/* experience & honors tables */
+.rows { display: grid; gap: 0; border-top: 1px solid var(--rule); }
+.row {
+  display: grid; grid-template-columns: 150px minmax(0, 1fr); gap: 16px;
+  padding: 12px 0; border-bottom: 1px solid var(--rule);
+}
+.row .when { font-family: "IBM Plex Mono", monospace; font-size: .8rem; color: var(--tag-ink); padding-top: 4px; font-variant-numeric: tabular-nums; }
+.row .what { margin: 0; }
+.row .what b { font-weight: 600; }
+.row .what .sub { display: block; color: var(--muted); font-size: .95rem; }
+.two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 28px 40px; }
+.two-col h3 { font-size: .85rem; letter-spacing: .08em; text-transform: uppercase; color: var(--muted); margin: 0 0 8px; font-weight: 600; }
+.two-col ul { margin: 0; padding-left: 18px; }
+.two-col li { margin: 4px 0; }
+.software { list-style: none; margin: 0; padding: 0; display: grid; gap: 12px; }
+.software li { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 12px; align-items: baseline; }
+.software .stars { font-family: "IBM Plex Mono", monospace; font-size: .8rem; color: var(--tag-ink); white-space: nowrap; }
+
+footer { color: var(--muted); font-size: .88rem; border-top: 1px solid var(--rule); padding-top: 16px; }
+
+@media (max-height: 820px) {
+  .side { position: static; }
+}
+@media (max-width: 880px) {
+  .page { grid-template-columns: 1fr; gap: 36px; }
+  .side { position: static; }
+  .side-top { display: grid; grid-template-columns: 132px minmax(0, 1fr); gap: 18px; align-items: center; }
+  .portrait { max-width: 132px; aspect-ratio: 1; border-radius: 50%; }
+  .name-block h1 { font-size: 1.8rem; }
+  .side nav { display: none; }
+  .two-col { grid-template-columns: 1fr; }
+}
+@media (max-width: 560px) {
+  body { font-size: 16px; }
+  .pub { grid-template-columns: 1fr; gap: 4px; }
+  .pub .venue { padding-top: 0; }
+  .pub .venue b { display: inline; }
+  .row { grid-template-columns: 1fr; gap: 2px; }
+}
+</style>
 </head>
-<body data-new-gr-c-s-check-loaded="14.1031.0" data-gr-ext-installed="">
+<body>
+<div class="page">
 
-<div id="layout-content" style="margin-top:25px">
+  <aside class="side">
+    <div class="side-top">
+      <img class="portrait" src="assets/zelin.jpg" alt="Portrait of Zelin Zhao" width="480" height="600">
+      <div class="name-block">
+        <h1>Zelin Zhao <span class="cn">赵泽林</span></h1>
+        <p class="role">Ph.D. Candidate in Machine Learning</p>
+        <p class="affil">Georgia Institute of Technology</p>
+      </div>
+    </div>
 
-<table>
-	<tbody>
-		<tr>
-			<td width="570">
-				<div id="toptitle">
-					<h1>Zelin Zhao &nbsp; <img src="./zelin_sources/name_chs_zelin.png" height="50px" style="margin-left:3px; margin-bottom:-15px"></h1><h1>
-				</h1></div>
+    <ul class="links">
+      <li><a href="mailto:zelin@gatech.edu"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></svg><span class="addr">zelin@gatech.edu</span></a></li>
+      <li><a href="https://scholar.google.com/citations?user=UDi4V3AAAAAJ&amp;hl=en"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c0 1.5 3 3 6 3s6-1.5 6-3v-5"/></svg>Google Scholar</a></li>
+      <li><a href="https://github.com/sjtuytc"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 19c-4.5 1.5-4.5-2.5-6-3m12 5v-3.5c0-1 .1-1.4-.5-2 2.8-.3 5.5-1.4 5.5-6a4.6 4.6 0 0 0-1.3-3.2 4.2 4.2 0 0 0-.1-3.2s-1.1-.3-3.5 1.3a12.3 12.3 0 0 0-6.2 0C6.5 2.8 5.4 3.1 5.4 3.1a4.2 4.2 0 0 0-.1 3.2A4.6 4.6 0 0 0 4 9.5c0 4.6 2.7 5.7 5.5 6-.6.6-.6 1.2-.5 2V21"/></svg>GitHub</a></li>
+      <li><a href="https://www.linkedin.com/in/zelin-zhao-9354a6191/"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M8 10v7M8 7v.01M12 17v-4a2 2 0 0 1 4 0v4M12 10v7"/></svg>LinkedIn</a></li>
+    </ul>
 
-				<h3>Ph.D. Candidate</h3>
-				<p>Computer Science and Engineering Department<br>
-					The Chinese University of Hong Kong
-					<br>
-					Email: sjtuytc [at] gmail [dot] com</a>
-					<br>
-					[<a href="https://scholar.google.com/citations?user=UDi4V3AAAAAJ&hl=en">Google Scholar</a>] |
-					[<a href="https://www.linkedin.com/in/zelin-zhao-9354a6191/">LinkedIn</a>] |
-					[<a href="https://www.zhihu.com/people/zhao-ytc">Zhihu</a>]
-				</p>
-				
-			</td>
-			<td>
-				<img src="./zelin_sources/zelin.jpg" border="0" height="250"><br>
-			</td>
-		</tr><tr>
-	</tr></tbody>
-</table>
+    <nav aria-label="Sections">
+      <ul>
+        <li><a href="#about">About</a></li>
+        <li><a href="#publications">Publications</a></li>
+        <li><a href="#experience">Experience</a></li>
+        <li><a href="#software">Software</a></li>
+        <li><a href="#honors">Honors &amp; service</a></li>
+      </ul>
+    </nav>
+  </aside>
 
-<h2>Biography</h2>
-<p>
-	I started my Ph.D. life in the <a href="https://www.cse.cuhk.edu.hk/">CSE Department of CUHK</a> in 2021 Fall, admitted by the <a href="https://cerg1.ugc.edu.hk/hkpfs/index.html">Hong Kong PhD Fellowship Scheme (HKPFS)</a>.
-	My supervisor is <a href="http://www.cse.cuhk.edu.hk/~leojia">Prof. Jiaya Jia</a>.
-	Prior to that, I received the B.E. degree in Computer Science from <a href="https://en.sjtu.edu.cn/">SJTU</a> in 2021 (ranked 2/147, GPA 91.83/100).
-	I had a great time visiting <a href="https://www.csail.mit.edu/">MIT CSAIL</a> (supervised by <a href="https://jiajunwu.com/">Prof. Jiajun Wu</a> and <a href="http://web.mit.edu/cocosci/josh.html">Prof. Josh Tenenbaum</a>)
-	and <a href="https://www.gatech.edu/">Gatech</a> (supervised by <a href="https://scholar.google.com/citations?user=Xl4E0CsAAAAJ&hl=en">Prof. Le Song</a>).
-</p>
-<p>My research interests include computer vision and machine learning. Welcome to connect me via my Wechat ytc407 with your name & institution noted.</p>
+  <main>
+    <section id="about">
+      <h2>About</h2>
+      <p class="lede">
+        I am a Ph.D. candidate in Machine Learning at <a href="https://www.gatech.edu/">Georgia Tech</a>, advised by
+        <a href="https://yongxin.ae.gatech.edu/">Prof. Yongxin Chen</a> and
+        <a href="https://www.humphreyshi.com/">Prof. Humphrey Shi</a>. I work on generative models that
+        understand, predict, and interact with the physical world: video generation, action-conditioned
+        world models, neural fields, and the agents that use them.
+      </p>
+      <p>
+        Before Georgia Tech, I studied multi-object tracking with <a href="https://jiaya.me/">Prof. Jiaya Jia</a> at CUHK,
+        neural-operator control of turbulent flows with <a href="https://tensorlab.cms.caltech.edu/users/anima/">Prof. Anima Anandkumar</a> at Caltech,
+        neural-field representations with <a href="https://thinklab.sjtu.edu.cn/">Prof. Junchi Yan</a> at SJTU,
+        program-guided agents with <a href="https://scholar.google.com/citations?user=Xl4E0CsAAAAJ&amp;hl=en">Prof. Le Song</a>,
+        and policy learning with <a href="https://jiajunwu.com/">Prof. Jiajun Wu</a> and
+        <a href="https://cocosci.mit.edu/josh">Prof. Josh Tenenbaum</a> at MIT CSAIL.
+        I received my B.S. in Computer Science from Shanghai Jiao Tong University (Zhiyuan Honors Program, ranked 3/145).
+      </p>
+      <p>
+        Most recently I spent 2026 in the World Modeling team at <a href="https://waymo.com/">Waymo</a>, working on
+        world-model pre-training, 3D Gaussian Splatting mid-training, and distillation for driving simulation, and
+        2025 at <a href="https://www.bytedance.com/">ByteDance</a> on camera-controllable video generation.
+      </p>
+      <ul class="interests" aria-label="Research interests">
+        <li>world models</li><li>video generation</li><li>flow matching &amp; diffusion</li><li>neural fields</li><li>3D vision</li><li>LLM agents</li>
+      </ul>
+    </section>
 
-<h2>Publications</h2>
-<ul>
-	<li>
-		<a href="./zelin_pages/p3aformer.html">Tracking Objects as Pixel-wise Distributions</a><br>
-		<b>Zelin Zhao</b>, Ze Wu, Yueqing Zhuang, Boxun Li, Jiaya Jia<br>
-		<em>To appear at the European Conference on Computer Vision</em> (<b>ECCV</b>),
-		2022<br>
-		<b>Oral Presentation, rate: 2.7% in all submissions.</b><br>
-	</li>
-	<li>
-		<a href="https://arxiv.org/abs/2110.00804">ProTo: Program-Guided Transformer for Program-Guided Tasks</a><br>
-		<b>Zelin Zhao</b>, Karan Samel, Binghong Chen, Le Song.<br>
-		Work was done when I was a visiting student at Gatech. <br>
-		<em>The Thirty-Fifth Conference on Neural Information Processing Systems</em> (<b>NeurIPS</b>), 2021<br>
-	</li>
+    <section id="publications">
+      <h2>Selected publications</h2>
+      <ul class="pubs">
 
-	<li>
-		<a href="https://www.aaai.org/AAAI21Papers/AAAI-896.ZhaoZ.pdf">Augmenting Policy Learning with Routines Discovered from a Single Demonstration</a><br>
-		<b>Zelin Zhao</b>, Chuang Gan, Jiajun Wu, Xiaoxiao Guo, Joshua Tenenbaum.<br>
-		Work was done when I was a visiting student at MIT. <br>
-		<em>The Thirty-Fifth AAAI Conference on Artificial Intelligence</em> (<b>AAAI</b>), 2021<br>
-	</li>
+        <li class="pub">
+          <div class="venue"><b>CVPR</b>2026</div>
+          <div>
+            <p class="title"><a href="https://arxiv.org/abs/2512.19020">CETCam: Camera-Controllable Video Generation via Consistent and Extensible Tokenization</a></p>
+            <p class="authors"><span class="me">Zelin Zhao</span>, Xinyu Gong, Bangya Liu, Ziyang Song, Jun Zhang, Suhui Wu, Yongxin Chen, Hao Zhang</p>
+            <p class="meta"><a href="https://arxiv.org/abs/2512.19020">arXiv</a><a href="https://sjtuytc.github.io/CETCam_project_page.github.io/">project page</a><span class="note">Work done during an internship at ByteDance.</span></p>
+          </div>
+        </li>
 
-	<li>
-		<a href="https://arxiv.org/pdf/2103.11537">How to Design Sample and Computationally Efficient VQA Models</a><br>
-		Karan Samel, <b>Zelin Zhao</b>, Binghong Chen, Kuan Wang, Robin Luo, Le Song.<br>
-		Tech report, arXiv, 2021<br>
-	</li>
+        <li class="pub">
+          <div class="venue"><b>ICLR</b>2026</div>
+          <div>
+            <p class="title"><a href="https://arxiv.org/abs/2602.19461">LapFlow: Laplacian Multi-scale Flow Matching for Generative Modeling</a></p>
+            <p class="authors"><span class="me">Zelin Zhao</span>, Petr Molodyk, Haotian Xue, Yongxin Chen</p>
+            <p class="meta"><a href="https://arxiv.org/abs/2602.19461">arXiv</a><a href="https://github.com/sjtuytc/ICLR26_LapFlow_Official">code</a></p>
+          </div>
+        </li>
 
-	<li>
-		<a href="https://arxiv.org/abs/2207.14741">End-to-end View Synthesis via NeRF Attention</a><br>
-		<b>Zelin Zhao</b>, Jiaya Jia.<br>
-		Tech report, arXiv, 2022<br>
-	</li>
+        <li class="pub">
+          <div class="venue"><b>LLA</b>workshop 2026</div>
+          <div>
+            <p class="title"><a href="https://arxiv.org/abs/2605.22875">RMA: An Agentic System for Research-Level Mathematical Problems</a></p>
+            <p class="authors"><span class="me">Zelin Zhao</span>, Bo Yuan, Yuchen Zhu, Jaemoo Choi, Yongxin Chen</p>
+            <p class="meta"><a href="https://arxiv.org/abs/2605.22875">arXiv</a><a href="https://github.com/sjtuytc/ResearchMathAgent">code</a><span class="note">The 2nd Workshop on Lifelong Agents: Learning, Aligning, and Evolving.</span></p>
+          </div>
+        </li>
 
-	<li>
-		<a href="https://arxiv.org/pdf/1812.01387">Estimating 6D pose from localizing designated surface keypoints</a><br>
-		<b>Zelin Zhao</b>, Gao Peng, Haoyu Wang, Hao-Shu Fang, Chengkun Li, Cewu Lu.<br>
-		Tech report, arXiv, 2018<br>
-	</li>
+        <li class="pub">
+          <div class="venue"><b>CVPR</b>2024</div>
+          <div>
+            <p class="title"><a href="https://arxiv.org/abs/2403.20002">Grounding and Enhancing Grid-based Models for Neural Fields</a></p>
+            <p class="authors"><span class="me">Zelin Zhao</span>, Fenglei Fan, Wenlong Liao, Junchi Yan</p>
+            <p class="meta"><span class="award">Best Paper Award Candidate</span><span class="award">Oral, top 0.2%</span><a href="https://arxiv.org/abs/2403.20002">arXiv</a><a href="https://openaccess.thecvf.com/content/CVPR2024/html/Zhao_Grounding_and_Enhancing_Grid-based_Models_for_Neural_Fields_CVPR_2024_paper.html">paper</a><a href="https://github.com/sjtuytc/UnboundedNeRFPytorch">code</a></p>
+          </div>
+        </li>
 
-	<li>
-	<a href="https://arxiv.org/pdf/1807.00652">Pointsift: A sift-like network module for 3d point cloud semantic segmentation</a><br>
-		Mingyang Jiang, Yiran Wu, Tianqi Zhao, <b>Zelin Zhao</b>, Cewu Lu.<br>
-	Tech report, arXiv, 2018<br>
-	</li>
-</ul>
+        <li class="pub">
+          <div class="venue"><b>ECCV</b>2022</div>
+          <div>
+            <p class="title"><a href="https://arxiv.org/abs/2207.05518">Tracking Objects as Pixel-wise Distributions</a></p>
+            <p class="authors"><span class="me">Zelin Zhao</span>, Ze Wu, Yueqing Zhang, Boxun Li, Jiaya Jia</p>
+            <p class="meta"><span class="award">Oral, top 4%</span><a href="https://arxiv.org/abs/2207.05518">arXiv</a><a href="https://github.com/dvlab-research/ECCV22-P3AFormer-Tracking-Objects-as-Pixel-wise-Distributions">code</a><span class="note">Top-2 model in the MOT20 multi-object tracking challenge.</span></p>
+          </div>
+        </li>
 
-<h2>Honors &amp; Awards</h2>
-<table style="border-spacing:2px" width="100%">
-	
-	<tbody><tr><td> <b>Hong Kong Ph.D. Fellowship Scheme</b> </td> <td> 2021 </td></tr>
-		<tr><td> <b>First Prize of Graduate Thesis in Computer Science, SJTU </b></td> <td> 2021 </td></tr>
-		<tr><td> <b>National Scholarship (Ranked 1/150) </b></td> <td> 2018 </td></tr>
-		<tr><td> <b>Scholarship of Shanghai City </b></td> <td> 2017 </td></tr>
-		<tr><td> <b>First Prize in Chinese Physics Olympiad (Shanxi Province) </b></td> <td> 2015 </td></tr>
-		<tr><td> Meritorious Winner in Mathematical Contest in Modeling (MCM) </td> <td> 2018 </td></tr>
-		<tr><td> The First-class Academic Excellence Scholarship of SJTU (Top 1%) </td> <td> 2018 </td></tr>
-		<tr><td> Zhiyuan Honors Scholarship </td> <td> 2016-2020 </td></tr>
-	</tbody>
-</table>
+        <li class="pub">
+          <div class="venue"><b>NeurIPS</b>2021</div>
+          <div>
+            <p class="title"><a href="https://arxiv.org/abs/2110.00804">ProTo: Program-Guided Transformer for Program-Guided Tasks</a></p>
+            <p class="authors"><span class="me">Zelin Zhao</span>, Karan Samel, Binghong Chen, Le Song</p>
+            <p class="meta"><a href="https://arxiv.org/abs/2110.00804">arXiv</a><a href="https://github.com/sjtuytc/Neurips21-ProTo-Program-guided-Transformers-for-Program-guided-Tasks">code</a><span class="note">Top-1 model in GQA 2021.</span></p>
+          </div>
+        </li>
 
+        <li class="pub">
+          <div class="venue"><b>AAAI</b>2021</div>
+          <div>
+            <p class="title"><a href="https://arxiv.org/abs/2012.12469">Augmenting Policy Learning with Routines Discovered from a Single Demonstration</a></p>
+            <p class="authors"><span class="me">Zelin Zhao</span>, Chuang Gan, Jiajun Wu, Xiaoxiao Guo, Joshua B. Tenenbaum</p>
+            <p class="meta"><a href="https://arxiv.org/abs/2012.12469">arXiv</a><a href="https://github.com/sjtuytc/AAAI21-RoutineAugmentedPolicyLearning">code</a></p>
+          </div>
+        </li>
+      </ul>
 
-<h2>Experiences</h2>
-<ul>
-	<li>
-		Visiting Student | <a href="https://www.gatech.edu/">Gatech</a> | July 2020 – July 2021<br>
-		Advisor: <a href="https://scholar.google.com/citations?user=Xl4E0CsAAAAJ&hl=en">Prof. Le Song</a><br>
-		Topic: program-guided tasks<br>
-	</li>
-	<li>
-		Internship | <a href="https://www.sensetime.com/en">SenseTime</a> | April 2020 – June 2020<br>
-		Advisor: <a href="https://jifengdai.org/">Prof. Jifeng Dai</a><br>
-		Topic: PyTorch object detection<br>
-	</li>
-	<li>
-		Visiting Student | <a href="https://www.csail.mit.edu/">MIT CSAIL</a> | July 2019 – March 2020<br>
-		Advisor: <a href="https://jiajunwu.com/">Prof. Jiajun Wu</a> and <a href="http://web.mit.edu/cocosci/josh.html">Prof. Josh Tenenbaum</a><br>
-		Topic: policy learning with programs<br>
-	</li>
-	<li>
-		Research Assistant | <a href="https://www.csail.mit.edu/">SJTU</a> | July 2019 – March 2020<br>
-		Advisor: <a href="https://mvig.sjtu.edu.cn/">Prof. Cewu Lu</a><br>
-		Topic: 6d pose estimation and point cloud segmentation<br>
-	</li>
-</ul>
+      <h2 style="margin-top:40px">Other papers</h2>
+      <ul class="pubs compact">
+        <li class="pub">
+          <div class="venue"><b>ICML</b>2026</div>
+          <div>
+            <p class="title"><a href="https://arxiv.org/abs/2602.03045">Clarify Before You Draw: Proactive Agents for Robust Text-to-CAD Generation</a></p>
+            <p class="authors">Bo Yuan, <span class="me">Zelin Zhao</span>, Petr Molodyk, Bin Hu, Yongxin Chen</p>
+          </div>
+        </li>
+        <li class="pub">
+          <div class="venue"><b>ECCV</b>2026</div>
+          <div>
+            <p class="title"><a href="https://arxiv.org/abs/2512.22854">LOOM: Weaving Geometry-Consistent Human-Object Interaction Videos via Progressive Curriculum Learning</a></p>
+            <p class="authors">Bangya Liu, <span class="me">Zelin Zhao</span>, Ziyang Song, Suman Banerjee, Xinyu Gong</p>
+          </div>
+        </li>
+        <li class="pub">
+          <div class="venue"><b>SIGGRAPH</b>2026</div>
+          <div>
+            <p class="title"><a href="https://arxiv.org/abs/2601.17756">MV-S2V: Multi-View Subject-Consistent Video Generation</a></p>
+            <p class="authors">Ziyang Song, Xinyu Gong, Bangya Liu, <span class="me">Zelin Zhao</span></p>
+          </div>
+        </li>
+        <li class="pub">
+          <div class="venue"><b>preprint</b>2025</div>
+          <div>
+            <p class="title"><a href="https://arxiv.org/abs/2510.03360">Physics-informed Neural-operator Predictive Control for Drag Reduction in Turbulent Flows</a></p>
+            <p class="authors"><span class="me">Zelin Zhao</span>, Zongyi Li, Kimia Hassibi, Kamyar Azizzadenesheli, Junchi Yan, Jane H. Bae, Anima Anandkumar</p>
+          </div>
+        </li>
+        <li class="pub">
+          <div class="venue"><b>preprint</b>2022</div>
+          <div>
+            <p class="title"><a href="https://arxiv.org/abs/2207.14741">End-to-end View Synthesis via NeRF Attention</a></p>
+            <p class="authors"><span class="me">Zelin Zhao</span>, Jiaya Jia</p>
+          </div>
+        </li>
+        <li class="pub">
+          <div class="venue"><b>preprint</b>2021</div>
+          <div>
+            <p class="title"><a href="https://arxiv.org/abs/2103.11537">How to Design Sample and Computationally Efficient VQA Models</a></p>
+            <p class="authors">Karan Samel, <span class="me">Zelin Zhao</span>, Binghong Chen, Kuan Wang, Robin Luo, Le Song</p>
+          </div>
+        </li>
+        <li class="pub">
+          <div class="venue"><b>preprint</b>2018</div>
+          <div>
+            <p class="title"><a href="https://arxiv.org/abs/1812.01387">Estimating 6D Pose from Localizing Designated Surface Keypoints</a></p>
+            <p class="authors"><span class="me">Zelin Zhao</span>, Gao Peng, Haoyu Wang, Hao-Shu Fang, Chengkun Li, Cewu Lu</p>
+          </div>
+        </li>
+        <li class="pub">
+          <div class="venue"><b>preprint</b>2018</div>
+          <div>
+            <p class="title"><a href="https://arxiv.org/abs/1807.00652">PointSIFT: A SIFT-like Network Module for 3D Point Cloud Semantic Segmentation</a></p>
+            <p class="authors">Mingyang Jiang, Yiran Wu, Tianqi Zhao, <span class="me">Zelin Zhao</span>, Cewu Lu</p>
+          </div>
+        </li>
+      </ul>
+      <p class="note" style="margin-top:16px">A complete and up-to-date list is on <a href="https://scholar.google.com/citations?user=UDi4V3AAAAAJ&amp;hl=en">Google Scholar</a>.</p>
+    </section>
 
-<h2>Academic Service</h2>
-<table id="Service" border="0" width="100%">
-	<tbody>
-		<tr>
-			<td>Reviewer for the European Conference on Computer Vision (ECCV) </td>
-			<td>2022</td>
-		</tr>
-		<tr>
-			<td>Reviewer for the IEEE / CVF Computer Vision and Pattern Recognition Conference (CVPR) </td>
-			<td>2022</td>
-		</tr>
-		<tr>
-			<td>Reviewer for the AAAI Conference on Artificial Intelligence (AAAI) </td><td>2022</td>
-		</tr>
-		<tr>
-			<td>Teacher assistant for ENGG2440A Discrete Mathematics for Engineers</td><td>2021</td>
-		</tr>
-		<tr>
-			<td>Reviewer for the International Conference on Computer Vision (ICCV) </td><td>2021</td>
-		</tr>
-		<tr>
-			<td>Invited reviewer for the Pattern Recognition</td><td>2021</td>
-		</tr>
-	</tbody>
-</table>
+    <section id="experience">
+      <h2>Experience</h2>
+      <div class="rows">
+        <div class="row"><div class="when">2026</div><p class="what"><b>Waymo</b>, World Modeling · Software Engineer Intern<span class="sub">World-model pre-training, 3DGS mid-training, and distillation; action-conditioned world models from driving logs and counterfactual videos. Mountain View, CA.</span></p></div>
+        <div class="row"><div class="when">2025</div><p class="what"><b>ByteDance</b>, E-commerce · Machine Learning Engineer Intern<span class="sub">Camera-controllable video generation (CETCam), human-object interaction videos (LOOM), multi-view subject-consistent video (MV-S2V). San Jose, CA.</span></p></div>
+        <div class="row"><div class="when">2024 – now</div><p class="what"><b>Georgia Tech</b> · Ph.D. in Machine Learning<span class="sub">Advisors: Prof. Yongxin Chen and Prof. Humphrey Shi. M.S. in Computer Science, 2026.</span></p></div>
+        <div class="row"><div class="when">2023 – 2024</div><p class="what"><b>Caltech</b>, Anima Lab · Research Assistant<span class="sub">Physics-informed neural-operator predictive control for turbulent drag reduction, with Prof. Anima Anandkumar.</span></p></div>
+        <div class="row"><div class="when">2022 – 2023</div><p class="what"><b>Shanghai Jiao Tong University</b>, ReThinkLab · Research Assistant<span class="sub">Grid-based neural fields (MulFAGrid), with Prof. Junchi Yan and Dr. Fenglei Fan.</span></p></div>
+        <div class="row"><div class="when">2021 – 2022</div><p class="what"><b>CUHK</b>, Deep Vision Lab &amp; SmartMore · Research Student<span class="sub">Multi-object tracking as pixel-wise distributions, with Prof. Jiaya Jia.</span></p></div>
+        <div class="row"><div class="when">2020 – 2021</div><p class="what"><b>Georgia Tech</b>, Machine Learning Group · Research Assistant<span class="sub">Program-guided agents (ProTo), with Prof. Le Song.</span></p></div>
+        <div class="row"><div class="when">2020</div><p class="what"><b>SenseTime Research</b>, Fundamental Vision · Research Intern<span class="sub">Mixed-precision training for object detection, with Dr. Jifeng Dai.</span></p></div>
+        <div class="row"><div class="when">2019 – 2020</div><p class="what"><b>MIT CSAIL</b> · Visiting Student<span class="sub">Routines from a single demonstration for imitation and reinforcement learning, with Prof. Joshua B. Tenenbaum and Prof. Jiajun Wu.</span></p></div>
+        <div class="row"><div class="when">2017 – 2019</div><p class="what"><b>Shanghai Jiao Tong University</b>, MVIG · Research Assistant<span class="sub">6D object pose estimation and point-cloud segmentation, with Prof. Cewu Lu.</span></p></div>
+        <div class="row"><div class="when">2016 – 2021</div><p class="what"><b>Shanghai Jiao Tong University</b> · B.S. in Computer Science and Technology<span class="sub">Zhiyuan Honors Engineering Program. GPA 91.90/100, ranked 3/145.</span></p></div>
+      </div>
+    </section>
 
-<script>
-  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+    <section id="software">
+      <h2>Software</h2>
+      <ul class="software">
+        <li><span><a href="https://github.com/sjtuytc/UnboundedNeRFPytorch">UnboundedNeRFPytorch</a> <span class="note">Simple, fast unbounded and large-scale NeRFs; official code of the CVPR 2024 paper.</span></span><span class="stars">1.3k stars</span></li>
+        <li><span><a href="https://github.com/sjtuytc/ResearchMathAgent">ResearchMathAgent</a> <span class="note">An agentic system for research-level mathematical problems.</span></span><span class="stars">29 stars</span></li>
+        <li><span><a href="https://github.com/sjtuytc/ICLR26_LapFlow_Official">LapFlow</a> <span class="note">Laplacian multi-scale flow matching, official code.</span></span><span class="stars">7 stars</span></li>
+        <li><span><a href="https://github.com/sjtuytc/betapose">betapose</a> <span class="note">6D pose estimation from designated surface keypoints.</span></span><span class="stars">70 stars</span></li>
+      </ul>
+    </section>
 
-  ga('create', 'UA-88615920-1', 'auto');
-  ga('send', 'pageview');
+    <section id="honors">
+      <h2>Honors &amp; service</h2>
+      <div class="two-col">
+        <div>
+          <h3>Honors</h3>
+          <ul>
+            <li>CVPR 2024 Best Paper Award Candidate and Oral Presentation</li>
+            <li>ECCV 2022 Oral Presentation</li>
+            <li>Extraordinary Bachelor's Thesis in Computer Science, SJTU, 2021</li>
+            <li>National Scholarship (ranked 1/150), 2018</li>
+            <li>First-class Academic Excellence Scholarship, SJTU (top 1%), 2018</li>
+            <li>Meritorious Winner, Mathematical Contest in Modeling, 2018</li>
+            <li>Shanghai Municipal Scholarship, 2017</li>
+            <li>Zhiyuan Honors Scholarship, 2016 – 2020</li>
+            <li>First Prize, Chinese Physics Olympiad, Shanxi Province, 2015</li>
+          </ul>
+        </div>
+        <div>
+          <h3>Reviewing</h3>
+          <ul>
+            <li>Conferences: ICML, ICLR, NeurIPS, AAAI, CVPR, ICCV, ECCV, CICAI</li>
+            <li>Journals: International Journal of Computer Vision, Neural Computing, Physics of Fluids</li>
+          </ul>
+          <h3 style="margin-top:20px">Teaching</h3>
+          <ul>
+            <li>Teaching assistant, ENGG2440A Discrete Mathematics for Engineers, CUHK, 2021</li>
+          </ul>
+        </div>
+      </div>
+    </section>
 
-</script>
-
+    <footer>
+      Last updated September 2026. Built as a single static page; no tracking or third-party scripts.
+    </footer>
+  </main>
 </div>
-
-</body><grammarly-desktop-integration data-grammarly-shadow-root="true"></grammarly-desktop-integration></html>
+</body>
+</html>
