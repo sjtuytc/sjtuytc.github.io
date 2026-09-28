@@ -102,6 +102,7 @@ strong { font-weight: 600; }
   flex-direction: column;
   gap: 18px;
 }
+.side-top { display: grid; gap: 22px; }
 .portrait {
   width: 100%;
   max-width: 208px;
@@ -216,7 +217,7 @@ footer { color: var(--muted); font-size: .88rem; border-top: 1px solid var(--rul
 @media (max-width: 880px) {
   .page { grid-template-columns: 1fr; gap: 36px; }
   .side { position: static; }
-  .side-top { display: grid; grid-template-columns: 132px minmax(0, 1fr); gap: 18px; align-items: center; }
+  .side-top { grid-template-columns: 132px minmax(0, 1fr); gap: 20px; align-items: center; }
   .portrait { max-width: 132px; aspect-ratio: 1; border-radius: 50%; }
   .name-block h1 { font-size: 1.8rem; }
   .side nav { display: none; }
