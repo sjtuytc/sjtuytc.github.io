@@ -105,8 +105,10 @@ strong { font-weight: 600; }
 .portrait {
   width: 100%;
   max-width: 208px;
+  height: auto;
   aspect-ratio: 4 / 5;
   object-fit: cover;
+  object-position: center top;
   border-radius: 6px;
   box-shadow: var(--shadow);
   display: block;
@@ -132,7 +134,7 @@ strong { font-weight: 600; }
 .name-block .role { margin: 8px 0 0; font-size: 1rem; color: var(--ink); }
 .name-block .affil { margin: 2px 0 0; color: var(--muted); font-size: .97rem; }
 .links { list-style: none; margin: 0; padding: 0; display: grid; gap: 6px; }
-.links li a {
+.links li a, .links li .email {
   display: flex; align-items: center; gap: 10px;
   padding: 7px 10px; border-radius: 6px;
   color: var(--ink); font-weight: 500; font-size: .96rem;
@@ -234,7 +236,7 @@ footer { color: var(--muted); font-size: .88rem; border-top: 1px solid var(--rul
 
   <aside class="side">
     <div class="side-top">
-      <img class="portrait" src="assets/zelin.jpg" alt="Portrait of Zelin Zhao" width="480" height="600">
+      <img class="portrait" src="assets/zelin.jpg" alt="Portrait of Zelin Zhao">
       <div class="name-block">
         <h1>Zelin Zhao <span class="cn">赵泽林</span></h1>
         <p class="role">Ph.D. Candidate in Machine Learning</p>
@@ -243,7 +245,7 @@ footer { color: var(--muted); font-size: .88rem; border-top: 1px solid var(--rul
     </div>
 
     <ul class="links">
-      <li><a href="mailto:zelin@gatech.edu"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></svg><span class="addr">zelin@gatech.edu</span></a></li>
+      <li><span class="email"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></svg><span class="addr">zelin [at] gatech [dot] edu</span></span></li>
       <li><a href="https://scholar.google.com/citations?user=UDi4V3AAAAAJ&amp;hl=en"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c0 1.5 3 3 6 3s6-1.5 6-3v-5"/></svg>Google Scholar</a></li>
       <li><a href="https://github.com/sjtuytc"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 19c-4.5 1.5-4.5-2.5-6-3m12 5v-3.5c0-1 .1-1.4-.5-2 2.8-.3 5.5-1.4 5.5-6a4.6 4.6 0 0 0-1.3-3.2 4.2 4.2 0 0 0-.1-3.2s-1.1-.3-3.5 1.3a12.3 12.3 0 0 0-6.2 0C6.5 2.8 5.4 3.1 5.4 3.1a4.2 4.2 0 0 0-.1 3.2A4.6 4.6 0 0 0 4 9.5c0 4.6 2.7 5.7 5.5 6-.6.6-.6 1.2-.5 2V21"/></svg>GitHub</a></li>
       <li><a href="https://www.linkedin.com/in/zelin-zhao-9354a6191/"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M8 10v7M8 7v.01M12 17v-4a2 2 0 0 1 4 0v4M12 10v7"/></svg>LinkedIn</a></li>
