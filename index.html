@@ -169,27 +169,31 @@ section > h2 {
 }
 
 /* publications */
-.pubs { list-style: none; margin: 0; padding: 0; display: grid; gap: 22px; }
-.pub { display: grid; grid-template-columns: 78px minmax(0, 1fr); gap: 16px; align-items: start; }
-.pub .venue {
-  font-family: "IBM Plex Mono", monospace; font-size: .8rem; line-height: 1.35;
-  color: var(--tag-ink); padding-top: 4px;
+.pub-intro { margin: -6px 0 18px; }
+h3.year {
+  font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: .85rem; letter-spacing: .08em;
+  color: var(--muted); margin: 30px 0 14px; display: flex; align-items: center; gap: 12px;
 }
-.pub .venue b { display: block; font-weight: 500; color: var(--ink); }
+h3.year::after { content: ""; flex: 1; height: 1px; background: var(--rule); }
+.pubs { list-style: none; margin: 0; padding: 0; display: grid; gap: 26px; }
+.pub { display: grid; grid-template-columns: 210px minmax(0, 1fr); gap: 20px; align-items: start; }
+.pub .thumb { display: block; border-radius: 6px; overflow: hidden; background: #fff; border: 1px solid var(--rule); aspect-ratio: 5 / 3; }
+.pub .thumb img { display: block; width: 100%; height: 100%; object-fit: cover; }
+.pub .thumb:hover { border-color: var(--accent); }
 .pub .title { font-family: "Newsreader", Georgia, serif; font-size: 1.22rem; line-height: 1.3; font-weight: 500; margin: 0; }
 .pub .title a { color: var(--ink); }
 .pub .title a:hover { color: var(--accent-ink); }
 .pub .authors { margin: 4px 0 0; color: var(--muted); font-size: .97rem; }
 .pub .authors .me { color: var(--ink); font-weight: 600; }
+.pub .venue-line { margin: 5px 0 0; display: flex; flex-wrap: wrap; gap: 6px 10px; align-items: center; }
+.pub .venue { font-family: "IBM Plex Mono", monospace; font-size: .8rem; color: var(--tag-ink); }
 .pub .meta { display: flex; flex-wrap: wrap; gap: 6px 14px; margin: 6px 0 0; align-items: center; font-size: .92rem; }
 .pub .meta a { font-weight: 500; }
 .award {
-  display: inline-block; font-size: .8rem; font-weight: 600; letter-spacing: .02em;
+  display: inline-block; font-size: .78rem; font-weight: 600; letter-spacing: .02em;
   padding: 2px 8px; border-radius: 4px; background: var(--award-soft); color: var(--award);
 }
 .note { font-size: .92rem; color: var(--muted); }
-.pubs.compact { gap: 14px; }
-.pubs.compact .pub .title { font-size: 1.06rem; }
 
 /* experience & honors tables */
 .rows { display: grid; gap: 0; border-top: 1px solid var(--rule); }
@@ -225,9 +229,8 @@ footer { color: var(--muted); font-size: .88rem; border-top: 1px solid var(--rul
 }
 @media (max-width: 560px) {
   body { font-size: 16px; }
-  .pub { grid-template-columns: 1fr; gap: 4px; }
-  .pub .venue { padding-top: 0; }
-  .pub .venue b { display: inline; }
+  .pub { grid-template-columns: 1fr; gap: 10px; }
+  .pub .thumb { max-width: 340px; }
   .row { grid-template-columns: 1fr; gap: 2px; }
 }
 </style>
@@ -293,133 +296,161 @@ footer { color: var(--muted); font-size: .88rem; border-top: 1px solid var(--rul
     </section>
 
     <section id="publications">
-      <h2>Selected publications</h2>
+      <h2>Publications</h2>
+      <p class="note pub-intro">All papers, newest first. Thumbnails are the teaser figure of each paper. A citation-sorted list is on <a href="https://scholar.google.com/citations?user=UDi4V3AAAAAJ&amp;hl=en">Google Scholar</a>.</p>
+      <h3 class="year" id="y2026">2026</h3>
       <ul class="pubs">
-
         <li class="pub">
-          <div class="venue"><b>CVPR</b>2026</div>
+          <a class="thumb" href="https://arxiv.org/abs/2512.19020" tabindex="-1" aria-hidden="true"><img src="assets/pubs/cetcam.jpg" alt="" loading="lazy" width="600" height="360"></a>
           <div>
             <p class="title"><a href="https://arxiv.org/abs/2512.19020">CETCam: Camera-Controllable Video Generation via Consistent and Extensible Tokenization</a></p>
             <p class="authors"><span class="me">Zelin Zhao</span>, Xinyu Gong, Bangya Liu, Ziyang Song, Jun Zhang, Suhui Wu, Yongxin Chen, Hao Zhang</p>
+            <p class="venue-line"><span class="venue">CVPR 2026</span></p>
             <p class="meta"><a href="https://arxiv.org/abs/2512.19020">arXiv</a><a href="https://sjtuytc.github.io/CETCam_project_page.github.io/">project page</a><span class="note">Work done during an internship at ByteDance.</span></p>
           </div>
         </li>
-
         <li class="pub">
-          <div class="venue"><b>ICLR</b>2026</div>
+          <a class="thumb" href="https://arxiv.org/abs/2602.19461" tabindex="-1" aria-hidden="true"><img src="assets/pubs/lapflow.jpg" alt="" loading="lazy" width="600" height="360"></a>
           <div>
             <p class="title"><a href="https://arxiv.org/abs/2602.19461">LapFlow: Laplacian Multi-scale Flow Matching for Generative Modeling</a></p>
             <p class="authors"><span class="me">Zelin Zhao</span>, Petr Molodyk, Haotian Xue, Yongxin Chen</p>
+            <p class="venue-line"><span class="venue">ICLR 2026</span></p>
             <p class="meta"><a href="https://arxiv.org/abs/2602.19461">arXiv</a><a href="https://github.com/sjtuytc/ICLR26_LapFlow_Official">code</a></p>
           </div>
         </li>
-
         <li class="pub">
-          <div class="venue"><b>LLA</b>workshop 2026</div>
+          <a class="thumb" href="https://arxiv.org/abs/2605.22875" tabindex="-1" aria-hidden="true"><img src="assets/pubs/rma.jpg" alt="" loading="lazy" width="600" height="360"></a>
           <div>
             <p class="title"><a href="https://arxiv.org/abs/2605.22875">RMA: An Agentic System for Research-Level Mathematical Problems</a></p>
             <p class="authors"><span class="me">Zelin Zhao</span>, Bo Yuan, Yuchen Zhu, Jaemoo Choi, Yongxin Chen</p>
+            <p class="venue-line"><span class="venue">LLA Workshop 2026</span></p>
             <p class="meta"><a href="https://arxiv.org/abs/2605.22875">arXiv</a><a href="https://github.com/sjtuytc/ResearchMathAgent">code</a><span class="note">The 2nd Workshop on Lifelong Agents: Learning, Aligning, and Evolving.</span></p>
           </div>
         </li>
-
         <li class="pub">
-          <div class="venue"><b>CVPR</b>2024</div>
-          <div>
-            <p class="title"><a href="https://arxiv.org/abs/2403.20002">Grounding and Enhancing Grid-based Models for Neural Fields</a></p>
-            <p class="authors"><span class="me">Zelin Zhao</span>, Fenglei Fan, Wenlong Liao, Junchi Yan</p>
-            <p class="meta"><span class="award">Best Paper Award Candidate</span><span class="award">Oral, top 0.2%</span><a href="https://arxiv.org/abs/2403.20002">arXiv</a><a href="https://openaccess.thecvf.com/content/CVPR2024/html/Zhao_Grounding_and_Enhancing_Grid-based_Models_for_Neural_Fields_CVPR_2024_paper.html">paper</a><a href="https://github.com/sjtuytc/UnboundedNeRFPytorch">code</a></p>
-          </div>
-        </li>
-
-        <li class="pub">
-          <div class="venue"><b>ECCV</b>2022</div>
-          <div>
-            <p class="title"><a href="https://arxiv.org/abs/2207.05518">Tracking Objects as Pixel-wise Distributions</a></p>
-            <p class="authors"><span class="me">Zelin Zhao</span>, Ze Wu, Yueqing Zhang, Boxun Li, Jiaya Jia</p>
-            <p class="meta"><span class="award">Oral, top 4%</span><a href="https://arxiv.org/abs/2207.05518">arXiv</a><a href="https://github.com/dvlab-research/ECCV22-P3AFormer-Tracking-Objects-as-Pixel-wise-Distributions">code</a><span class="note">Top-2 model in the MOT20 multi-object tracking challenge.</span></p>
-          </div>
-        </li>
-
-        <li class="pub">
-          <div class="venue"><b>NeurIPS</b>2021</div>
-          <div>
-            <p class="title"><a href="https://arxiv.org/abs/2110.00804">ProTo: Program-Guided Transformer for Program-Guided Tasks</a></p>
-            <p class="authors"><span class="me">Zelin Zhao</span>, Karan Samel, Binghong Chen, Le Song</p>
-            <p class="meta"><a href="https://arxiv.org/abs/2110.00804">arXiv</a><a href="https://github.com/sjtuytc/Neurips21-ProTo-Program-guided-Transformers-for-Program-guided-Tasks">code</a><span class="note">Top-1 model in GQA 2021.</span></p>
-          </div>
-        </li>
-
-        <li class="pub">
-          <div class="venue"><b>AAAI</b>2021</div>
-          <div>
-            <p class="title"><a href="https://arxiv.org/abs/2012.12469">Augmenting Policy Learning with Routines Discovered from a Single Demonstration</a></p>
-            <p class="authors"><span class="me">Zelin Zhao</span>, Chuang Gan, Jiajun Wu, Xiaoxiao Guo, Joshua B. Tenenbaum</p>
-            <p class="meta"><a href="https://arxiv.org/abs/2012.12469">arXiv</a><a href="https://github.com/sjtuytc/AAAI21-RoutineAugmentedPolicyLearning">code</a></p>
-          </div>
-        </li>
-      </ul>
-
-      <h2 style="margin-top:40px">Other papers</h2>
-      <ul class="pubs compact">
-        <li class="pub">
-          <div class="venue"><b>ICML</b>2026</div>
+          <a class="thumb" href="https://arxiv.org/abs/2602.03045" tabindex="-1" aria-hidden="true"><img src="assets/pubs/cad.jpg" alt="" loading="lazy" width="600" height="360"></a>
           <div>
             <p class="title"><a href="https://arxiv.org/abs/2602.03045">Clarify Before You Draw: Proactive Agents for Robust Text-to-CAD Generation</a></p>
             <p class="authors">Bo Yuan, <span class="me">Zelin Zhao</span>, Petr Molodyk, Bin Hu, Yongxin Chen</p>
+            <p class="venue-line"><span class="venue">ICML 2026</span></p>
+            <p class="meta"><a href="https://arxiv.org/abs/2602.03045">arXiv</a></p>
           </div>
         </li>
         <li class="pub">
-          <div class="venue"><b>ECCV</b>2026</div>
+          <a class="thumb" href="https://arxiv.org/abs/2512.22854" tabindex="-1" aria-hidden="true"><img src="assets/pubs/loom.jpg" alt="" loading="lazy" width="600" height="360"></a>
           <div>
             <p class="title"><a href="https://arxiv.org/abs/2512.22854">LOOM: Weaving Geometry-Consistent Human-Object Interaction Videos via Progressive Curriculum Learning</a></p>
             <p class="authors">Bangya Liu, <span class="me">Zelin Zhao</span>, Ziyang Song, Suman Banerjee, Xinyu Gong</p>
+            <p class="venue-line"><span class="venue">ECCV 2026</span></p>
+            <p class="meta"><a href="https://arxiv.org/abs/2512.22854">arXiv</a></p>
           </div>
         </li>
         <li class="pub">
-          <div class="venue"><b>SIGGRAPH</b>2026</div>
+          <a class="thumb" href="https://arxiv.org/abs/2601.17756" tabindex="-1" aria-hidden="true"><img src="assets/pubs/mvs2v.jpg" alt="" loading="lazy" width="600" height="360"></a>
           <div>
             <p class="title"><a href="https://arxiv.org/abs/2601.17756">MV-S2V: Multi-View Subject-Consistent Video Generation</a></p>
             <p class="authors">Ziyang Song, Xinyu Gong, Bangya Liu, <span class="me">Zelin Zhao</span></p>
-          </div>
-        </li>
-        <li class="pub">
-          <div class="venue"><b>preprint</b>2025</div>
-          <div>
-            <p class="title"><a href="https://arxiv.org/abs/2510.03360">Physics-informed Neural-operator Predictive Control for Drag Reduction in Turbulent Flows</a></p>
-            <p class="authors"><span class="me">Zelin Zhao</span>, Zongyi Li, Kimia Hassibi, Kamyar Azizzadenesheli, Junchi Yan, Jane H. Bae, Anima Anandkumar</p>
-          </div>
-        </li>
-        <li class="pub">
-          <div class="venue"><b>preprint</b>2022</div>
-          <div>
-            <p class="title"><a href="https://arxiv.org/abs/2207.14741">End-to-end View Synthesis via NeRF Attention</a></p>
-            <p class="authors"><span class="me">Zelin Zhao</span>, Jiaya Jia</p>
-          </div>
-        </li>
-        <li class="pub">
-          <div class="venue"><b>preprint</b>2021</div>
-          <div>
-            <p class="title"><a href="https://arxiv.org/abs/2103.11537">How to Design Sample and Computationally Efficient VQA Models</a></p>
-            <p class="authors">Karan Samel, <span class="me">Zelin Zhao</span>, Binghong Chen, Kuan Wang, Robin Luo, Le Song</p>
-          </div>
-        </li>
-        <li class="pub">
-          <div class="venue"><b>preprint</b>2018</div>
-          <div>
-            <p class="title"><a href="https://arxiv.org/abs/1812.01387">Estimating 6D Pose from Localizing Designated Surface Keypoints</a></p>
-            <p class="authors"><span class="me">Zelin Zhao</span>, Gao Peng, Haoyu Wang, Hao-Shu Fang, Chengkun Li, Cewu Lu</p>
-          </div>
-        </li>
-        <li class="pub">
-          <div class="venue"><b>preprint</b>2018</div>
-          <div>
-            <p class="title"><a href="https://arxiv.org/abs/1807.00652">PointSIFT: A SIFT-like Network Module for 3D Point Cloud Semantic Segmentation</a></p>
-            <p class="authors">Mingyang Jiang, Yiran Wu, Tianqi Zhao, <span class="me">Zelin Zhao</span>, Cewu Lu</p>
+            <p class="venue-line"><span class="venue">SIGGRAPH 2026</span></p>
+            <p class="meta"><a href="https://arxiv.org/abs/2601.17756">arXiv</a></p>
           </div>
         </li>
       </ul>
-      <p class="note" style="margin-top:16px">A complete and up-to-date list is on <a href="https://scholar.google.com/citations?user=UDi4V3AAAAAJ&amp;hl=en">Google Scholar</a>.</p>
+      <h3 class="year" id="y2025">2025</h3>
+      <ul class="pubs">
+        <li class="pub">
+          <a class="thumb" href="https://arxiv.org/abs/2510.03360" tabindex="-1" aria-hidden="true"><img src="assets/pubs/pino.jpg" alt="" loading="lazy" width="600" height="360"></a>
+          <div>
+            <p class="title"><a href="https://arxiv.org/abs/2510.03360">Physics-informed Neural-operator Predictive Control for Drag Reduction in Turbulent Flows</a></p>
+            <p class="authors"><span class="me">Zelin Zhao</span>, Zongyi Li, Kimia Hassibi, Kamyar Azizzadenesheli, Junchi Yan, Jane H. Bae, Anima Anandkumar</p>
+            <p class="venue-line"><span class="venue">arXiv preprint 2025</span></p>
+            <p class="meta"><a href="https://arxiv.org/abs/2510.03360">arXiv</a></p>
+          </div>
+        </li>
+      </ul>
+      <h3 class="year" id="y2024">2024</h3>
+      <ul class="pubs">
+        <li class="pub">
+          <a class="thumb" href="https://arxiv.org/abs/2403.20002" tabindex="-1" aria-hidden="true"><img src="assets/pubs/mulfagrid.jpg" alt="" loading="lazy" width="600" height="360"></a>
+          <div>
+            <p class="title"><a href="https://arxiv.org/abs/2403.20002">Grounding and Enhancing Grid-based Models for Neural Fields</a></p>
+            <p class="authors"><span class="me">Zelin Zhao</span>, Fenglei Fan, Wenlong Liao, Junchi Yan</p>
+            <p class="venue-line"><span class="venue">CVPR 2024</span><span class="award">Best Paper Award Candidate</span><span class="award">Oral, top 0.2%</span></p>
+            <p class="meta"><a href="https://arxiv.org/abs/2403.20002">arXiv</a><a href="https://openaccess.thecvf.com/content/CVPR2024/html/Zhao_Grounding_and_Enhancing_Grid-based_Models_for_Neural_Fields_CVPR_2024_paper.html">paper</a><a href="https://github.com/sjtuytc/UnboundedNeRFPytorch">code</a><span class="note">Code has 1.3k+ GitHub stars.</span></p>
+          </div>
+        </li>
+      </ul>
+      <h3 class="year" id="y2022">2022</h3>
+      <ul class="pubs">
+        <li class="pub">
+          <a class="thumb" href="https://arxiv.org/abs/2207.05518" tabindex="-1" aria-hidden="true"><img src="assets/pubs/p3aformer.jpg" alt="" loading="lazy" width="600" height="360"></a>
+          <div>
+            <p class="title"><a href="https://arxiv.org/abs/2207.05518">Tracking Objects as Pixel-wise Distributions</a></p>
+            <p class="authors"><span class="me">Zelin Zhao</span>, Ze Wu, Yueqing Zhang, Boxun Li, Jiaya Jia</p>
+            <p class="venue-line"><span class="venue">ECCV 2022</span><span class="award">Oral, top 4%</span></p>
+            <p class="meta"><a href="https://arxiv.org/abs/2207.05518">arXiv</a><a href="https://github.com/dvlab-research/ECCV22-P3AFormer-Tracking-Objects-as-Pixel-wise-Distributions">code</a><span class="note">Top-2 model in the MOT20 multi-object tracking challenge.</span></p>
+          </div>
+        </li>
+        <li class="pub">
+          <a class="thumb" href="https://arxiv.org/abs/2207.14741" tabindex="-1" aria-hidden="true"><img src="assets/pubs/nerfatt.jpg" alt="" loading="lazy" width="600" height="360"></a>
+          <div>
+            <p class="title"><a href="https://arxiv.org/abs/2207.14741">End-to-end View Synthesis via NeRF Attention</a></p>
+            <p class="authors"><span class="me">Zelin Zhao</span>, Jiaya Jia</p>
+            <p class="venue-line"><span class="venue">arXiv preprint 2022</span></p>
+            <p class="meta"><a href="https://arxiv.org/abs/2207.14741">arXiv</a></p>
+          </div>
+        </li>
+      </ul>
+      <h3 class="year" id="y2021">2021</h3>
+      <ul class="pubs">
+        <li class="pub">
+          <a class="thumb" href="https://arxiv.org/abs/2110.00804" tabindex="-1" aria-hidden="true"><img src="assets/pubs/proto.jpg" alt="" loading="lazy" width="600" height="360"></a>
+          <div>
+            <p class="title"><a href="https://arxiv.org/abs/2110.00804">ProTo: Program-Guided Transformer for Program-Guided Tasks</a></p>
+            <p class="authors"><span class="me">Zelin Zhao</span>, Karan Samel, Binghong Chen, Le Song</p>
+            <p class="venue-line"><span class="venue">NeurIPS 2021</span></p>
+            <p class="meta"><a href="https://arxiv.org/abs/2110.00804">arXiv</a><a href="https://github.com/sjtuytc/Neurips21-ProTo-Program-guided-Transformers-for-Program-guided-Tasks">code</a><span class="note">Top-1 model in GQA 2021.</span></p>
+          </div>
+        </li>
+        <li class="pub">
+          <a class="thumb" href="https://arxiv.org/abs/2012.12469" tabindex="-1" aria-hidden="true"><img src="assets/pubs/routines.jpg" alt="" loading="lazy" width="600" height="360"></a>
+          <div>
+            <p class="title"><a href="https://arxiv.org/abs/2012.12469">Augmenting Policy Learning with Routines Discovered from a Single Demonstration</a></p>
+            <p class="authors"><span class="me">Zelin Zhao</span>, Chuang Gan, Jiajun Wu, Xiaoxiao Guo, Joshua B. Tenenbaum</p>
+            <p class="venue-line"><span class="venue">AAAI 2021</span></p>
+            <p class="meta"><a href="https://arxiv.org/abs/2012.12469">arXiv</a><a href="https://github.com/sjtuytc/AAAI21-RoutineAugmentedPolicyLearning">code</a></p>
+          </div>
+        </li>
+        <li class="pub">
+          <a class="thumb" href="https://arxiv.org/abs/2103.11537" tabindex="-1" aria-hidden="true"><img src="assets/pubs/vqa.jpg" alt="" loading="lazy" width="600" height="360"></a>
+          <div>
+            <p class="title"><a href="https://arxiv.org/abs/2103.11537">How to Design Sample and Computationally Efficient VQA Models</a></p>
+            <p class="authors">Karan Samel, <span class="me">Zelin Zhao</span>, Binghong Chen, Kuan Wang, Robin Luo, Le Song</p>
+            <p class="venue-line"><span class="venue">arXiv preprint 2021</span></p>
+            <p class="meta"><a href="https://arxiv.org/abs/2103.11537">arXiv</a></p>
+          </div>
+        </li>
+      </ul>
+      <h3 class="year" id="y2018">2018</h3>
+      <ul class="pubs">
+        <li class="pub">
+          <a class="thumb" href="https://arxiv.org/abs/1812.01387" tabindex="-1" aria-hidden="true"><img src="assets/pubs/betapose.jpg" alt="" loading="lazy" width="600" height="360"></a>
+          <div>
+            <p class="title"><a href="https://arxiv.org/abs/1812.01387">Estimating 6D Pose from Localizing Designated Surface Keypoints</a></p>
+            <p class="authors"><span class="me">Zelin Zhao</span>, Gao Peng, Haoyu Wang, Hao-Shu Fang, Chengkun Li, Cewu Lu</p>
+            <p class="venue-line"><span class="venue">arXiv preprint 2018</span></p>
+            <p class="meta"><a href="https://arxiv.org/abs/1812.01387">arXiv</a><a href="https://github.com/sjtuytc/betapose">code</a></p>
+          </div>
+        </li>
+        <li class="pub">
+          <a class="thumb" href="https://arxiv.org/abs/1807.00652" tabindex="-1" aria-hidden="true"><img src="assets/pubs/pointsift.jpg" alt="" loading="lazy" width="600" height="360"></a>
+          <div>
+            <p class="title"><a href="https://arxiv.org/abs/1807.00652">PointSIFT: A SIFT-like Network Module for 3D Point Cloud Semantic Segmentation</a></p>
+            <p class="authors">Mingyang Jiang, Yiran Wu, Tianqi Zhao, <span class="me">Zelin Zhao</span>, Cewu Lu</p>
+            <p class="venue-line"><span class="venue">arXiv preprint 2018</span></p>
+            <p class="meta"><a href="https://arxiv.org/abs/1807.00652">arXiv</a><span class="note">600+ citations.</span></p>
+          </div>
+        </li>
+      </ul>
     </section>
 
     <section id="experience">
